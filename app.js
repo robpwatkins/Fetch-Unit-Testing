@@ -1,5 +1,5 @@
 // const endpoint = 'https://api.punkapi.com/v2/beers';
-// const endpointForABeer = 'https://api.punkapi.com/v2/beers/1'
+const endpointForABeer = 'https://api.punkapi.com/v2/beers/1'
 // const beerEl = document.getElementById('beerBox');
 // const beerList = document.getElementById('beerList')
 // // beerEl.textContent = 'loading . . .';
@@ -35,7 +35,7 @@
 //   console.log(err);
 // }
 
-async function getABeer () {
+async function getABeer (fetch) {
   const resp = await fetch(endpointForABeer);
   const data = await resp.json();
   console.log(data);
@@ -46,10 +46,20 @@ getABeer();
 
 // console.log(data[0]);
 
-// const assert = require('assert');
+const assert = require('assert');
 
 describe('getABeer', () => {
-  it('should grab a cold one', () => {
+  it('should call fetch with the correct url', () => {
+    const fakeFetch = url => {
+      assert(
+        url ===
+        'https://api.punkapi.com/v2/beers/1'
+        )
+        return new Promise(function(resolve) {
 
+        })
+    }
+
+    getABeer(fakeFetch);
   })
 })
