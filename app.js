@@ -118,3 +118,40 @@ async function displayABeer () {
 //     getABeer(fakeFetch);
 //   })
 // })
+
+console.log('hi everybody!')
+
+
+setTimeout(function timeoutOneSecond() {
+    console.log('that took a while!')
+
+}, 1000);
+
+setTimeout(function timeoutThreeSeconds() {
+    console.log('*pause for laughter*')
+
+}, 3000);
+
+setTimeout(function timeoutSevenSeconds() {
+    console.log('that took even longer!')
+
+}, 7000);
+
+setTimeout(function timeoutNineSeconds() {
+    console.log('fin.')
+
+}, 9000);
+
+console.log('and now,');
+
+console.log('only after');
+
+console.log('all these');
+
+console.log('are done, ');
+
+console.log('do those timeouts');
+
+console.log('finally');
+
+console.log('get to do their thing.')
