@@ -1,3 +1,25 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: yellow;
+  text-align: center;
+}
+
 img {
   height: 25%;
+}
+
+.titleBox {
+  padding-top: 45px;
+  font-size: 55px;
+}
+
+.loopStuff {
+  text-align: left;
+  padding: 15px;
+  font-size: 25px;
+  line-height: 55px;
 }

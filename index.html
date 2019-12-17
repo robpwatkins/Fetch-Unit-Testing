@@ -2,13 +2,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
 <body>
-  <div id="beerBox">
-    <ul id="beerList"></ul>
+  <!-- <div id="beerBox"> -->
+    <!-- <ul id="beerList"></ul> -->
+  <!-- </div> -->
+  <div class="presentationBox">
+    <div class="titleBox">The Event Loop</div>
+    <div class="loopStuff">
+      <p>- Continually checks the call stack to see if there's any function that needs to run</p>
+      <p>- Functions that take time to execute like setTimout are actually timed in the browser</p>
+      <p>- The event loop prioritizes the call stack, and waits until everything in it has been run </p>
+    </div>
   </div>
   <script src="./app.js"></script>
 </body>
