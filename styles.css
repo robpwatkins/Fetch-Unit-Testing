@@ -23,3 +23,7 @@ img {
   font-size: 25px;
   line-height: 55px;
 }
+
+ul {
+  list-style-type: none;
+}

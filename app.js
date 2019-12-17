@@ -1,5 +1,7 @@
 const endpoint = 'https://api.punkapi.com/v2/beers';
 const endpointForABeer = 'https://api.punkapi.com/v2/beers/1'
+const endpointForABeerRandom = 'https://api.punkapi.com/v2/beers/random'
+const endpointForTenBeers = 'https://api.punkapi.com/v2/beers/10'
 const beerEl = document.getElementById('beerBox');
 const beerList = document.getElementById('beerList')
 // beerEl.textContent = 'loading . . .';
@@ -23,43 +25,96 @@ async function displayBeer() {
     beerList.appendChild(tagline);
     beerList.appendChild(abv);
   })
-  console.log(data);
-    // beerEl.textContent = `${data[0].tagline}`
-    // const img = document.createElement('img');
-    // img.src = `${data[3].image_url}`
-    // beerEl.appendChild(img);
+//   console.log(data);
+//     // beerEl.textContent = `${data[0].tagline}`
+//     // const img = document.createElement('img');
+//     // img.src = `${data[3].image_url}`
+//     // beerEl.appendChild(img);
+// }
+
+// function handleError(err) {
+//   console.log('OH NO!');
+//   console.log(err);
 }
 
-function handleError(err) {
-  console.log('OH NO!');
-  console.log(err);
+async function displayTenBeers() {
+  const response = await fetch(endpoint);
+  const data = await response.json();
+  const tenBeers = [];
+  tenBeers.push(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9]);
+    // console.log(data);
+  tenBeers.map((tenBeers) => {
+    // beerEl.textContent = beer.name;
+    const name = document.createElement('li');
+    const tagline = document.createElement('li');
+    const abv = document.createElement('li');
+    const img = document.createElement('img');
+    img.src = tenBeers.image_url;
+    tagline.innerHTML = `"${tenBeers.tagline}"`;
+    name.innerHTML = `${tenBeers.name}`;
+    abv.innerHTML = `ABV: ${tenBeers.abv}`
+    beerList.appendChild(img);
+    beerList.appendChild(name);
+    beerList.appendChild(tagline);
+    beerList.appendChild(abv);
+  })
+//   console.log(data);
+//     // beerEl.textContent = `${data[0].tagline}`
+//     // const img = document.createElement('img');
+//     // img.src = `${data[3].image_url}`
+//     // beerEl.appendChild(img);
+// }
+
+// function handleError(err) {
+//   console.log('OH NO!');
+//   console.log(err);
 }
 
-async function getABeer (fetch) {
+async function displayABeer () {
   const resp = await fetch(endpointForABeer);
   const data = await resp.json();
-  console.log(data);
+  data.map((data) => {
+    // beerEl.textContent = beer.name;
+    const name = document.createElement('li');
+    const tagline = document.createElement('li');
+    const abv = document.createElement('li');
+    const img = document.createElement('img');
+    img.src = data.image_url;
+    tagline.innerHTML = `"${data.tagline}"`;
+    name.innerHTML = `${data.name}`;
+    abv.innerHTML = `ABV: ${data.abv}`
+    beerList.appendChild(img);
+    beerList.appendChild(name);
+    beerList.appendChild(tagline);
+    beerList.appendChild(abv);
+  })
 }
 
-// getABeer();
-displayBeer();
+// displayABeer();
+// displayBeer();
+// displayTenBeers();
 
 // console.log(data[0]);
 
-const assert = require('assert');
+// async function getABeer (fetch) {
+//   const resp = await fetch('https://api.punkapi.com/v2/beers/1');
+//   const data = await resp.json();
+//   // console.log(data);
+// }
 
-describe('getABeer', () => {
-  it('should call fetch with the correct url', () => {
-    const fakeFetch = url => {
-      assert(
-        url ===
-        'https://api.punkapi.com/v2/beers/1'
-        )
-        return new Promise(function(resolve) {
+// getABeer();
 
-        })
-    }
+// const assert = require('assert');
 
-    getABeer(fakeFetch);
-  })
-})
+// describe('getABeer', () => {
+//   it('should call fetch with the correct url', () => {
+//     const fakeFetch = url => {
+//       assert(
+//         url ===
+//         'https://api.punkapi.com/v2/beers/1'
+//       )
+//     }
+
+//     getABeer(fakeFetch);
+//   })
+// })
